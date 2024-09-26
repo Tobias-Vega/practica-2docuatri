@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users Crud</title>
+  </head>
+  <body class="m-0">
+    <div class="flex gap-12 min-w-full justify-center pt-12" id="app">
+      <form id="create-user-form">
+        <h2>Create a new user</h2>
+        <div>
+          <label for="username">Write your username:</label>
+          <input type="text" name="username" id="username">
+        </div>
+
+        <div>
+          <label for="email">Write your email</label>
+          <input type="email" name="email" id="email">
+        </div>
+          
+        <div>
+          <label for="password">Write your password</label>
+          <input type="password" name="password" id="password">
+        </div>
+          
+          <button type="submit">Create</button>
+      </form>
+      <div id="user-list"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
