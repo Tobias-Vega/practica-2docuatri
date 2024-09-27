@@ -1,43 +1,26 @@
 import { Router } from 'express';
 import 
-{ allUsersCtrl, 
-  createUserCtrl,
-  deleteUserCtrl,
-  getUserIdCtrl,
-  upadteUserCtrl,
+{ signInCtrl,
+  validateSessionCtrl,
+  signOutCtrl
 } from '../controllers/user.controller.js';
-import { createUserValidator, idUserValidator, updateUserValidator } from '../validations/user.validators.js';
+import { createUserValidator } from '../validations/user.validators.js';
 import { applyValidations } from '../middlewares/validations.js';
+import validarJWT from '../middlewares/validarJWT.js';
 
 const userRoutes = Router();
 
-userRoutes.get(
-  '/', 
-  allUsersCtrl);
-
 userRoutes.post(
-  '/', 
+  '/sign-in', 
   createUserValidator, 
   applyValidations, 
-  createUserCtrl);
+  signInCtrl);
 
 userRoutes.get(
-  '/:id', 
-  idUserValidator, 
-  applyValidations, 
-  getUserIdCtrl);
+  '/session', validarJWT, validateSessionCtrl)
 
-userRoutes.patch(
-  '/:id', 
-  updateUserValidator,
-  idUserValidator,
-  applyValidations, 
-  upadteUserCtrl);
-
-userRoutes.delete(
-  '/:id',
-  idUserValidator,
-  applyValidations,
-  deleteUserCtrl);
+userRoutes.post(
+  '/sign-out', signOutCtrl
+)
 
 export { userRoutes };

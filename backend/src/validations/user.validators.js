@@ -6,13 +6,6 @@ export const createUserValidator = [
     .withMessage('El nombre de usuario debe ser un string')
     .notEmpty()
     .withMessage('El nombre de usuario no debe estar vacío'),
-  body('email')
-    .isString()
-    .withMessage('El email debe ser un string')
-    .notEmpty()
-    .withMessage('El email no debe estar vacío')
-    .isEmail()
-    .withMessage('El email debe ser válido'),
   body('password')
     .isString()
     .withMessage('la contraseña debe ser un string')
