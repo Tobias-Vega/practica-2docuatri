@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from '../settings/environments.js';
 
-export default (userId) => {
+exporat default (userId) => {
     return new Promise((resolve, reject) => {
         const payload = { userId }
         jwt.sign(
